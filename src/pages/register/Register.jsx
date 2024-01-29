@@ -69,7 +69,7 @@ const Register = () => {
           <div className="form-wrapper">
             <span className="logo">INSTAGRADE 5</span>
             <span className="title" style={{ fontSize: '25px',fontWeight:'bold',paddingBottom:'20px' }}>
-              Đăng ký
+              Register
             </span>
             <Form
               name="basic"
@@ -89,9 +89,9 @@ const Register = () => {
                 rules={[
                   {
                     type: 'email',
-                    message: 'Định dạng email không chính xác',
+                    message: 'Email format is incorrect',
                   },
-                  { required: true, message: "Email không được để trống!" },
+                  { required: true, message: "Email can't be empty!" },
                 ]}
                 wrapperCol={{
                   offset: 2,
@@ -106,10 +106,10 @@ const Register = () => {
                 rules={[
                   {
                     required: true,
-                    message: "Mật khẩu không được để trống!",
+                    message: "Password can't be empty!",
                   },
                   {
-                    message: `Mật khẩu không hợp lệ. \n Ex: Abcd@123!`,
+                    message: `Password invalid. \n Ex: Abcd@123!`,
                     pattern: new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*\\.\\_\\-])(?=.{5,30})'),
                   },
                 ]}
@@ -120,7 +120,7 @@ const Register = () => {
                 // hasFeedback
               >
                 <Input.Password
-                  placeholder="Mật khẩu"
+                  placeholder="Password"
                   style={{ border: 'none', color: '#000 !important' }}
                 />
               </Form.Item>
@@ -131,14 +131,14 @@ const Register = () => {
                 rules={[
                   {
                     required: true,
-                    message: 'Vui lòng xác nhận mật khẩu của bạn!',
+                    message: 'Please confirm your password!',
                   },
                   ({ getFieldValue }) => ({
                     validator(_, value) {
                       if (!value || getFieldValue('password') === value) {
                         return Promise.resolve();
                       }
-                      return Promise.reject(new Error('Hai mật khẩu bạn nhập không khớp nhau!'));
+                      return Promise.reject(new Error('The two passwords that you entered do not match!'));
                     },
                   }),
                 ]}
@@ -148,7 +148,7 @@ const Register = () => {
                 }}
               >
                 <Input.Password
-                  placeholder="Xác nhận mật khẩu"
+                  placeholder="Confirm Password"
                   style={{ border: 'none', color: '#000 !important' }}
                 />
               </Form.Item>
@@ -176,7 +176,7 @@ const Register = () => {
               </Form.Item>
             </Form>
             <p style={{ fontSize: '15px' }}>
-              Bạn có tài khoản không? <Link to="/login"><u style={{fontWeight:'bold'}}>Đăng nhập</u></Link>
+              You do have an account? <Link to="/login"><u style={{fontWeight:'bold'}}>Login</u></Link>
             </p>
           </div>
         </div>

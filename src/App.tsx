@@ -57,7 +57,7 @@ const App: React.FC = () => {
   // more languages options can be added here
   useEffect(() => {
     if (locale === 'en_US') {
-      moment.locale('vi_vn');
+      moment.locale('en');
     } else if (locale === 'zh_CN') {
       moment.locale('vi_vn');
     }
@@ -70,7 +70,7 @@ const App: React.FC = () => {
    */
   const getAntdLocale = () => {
     if (locale === 'en_US') {
-      return zhCN;
+      return enUS;
     } else if (locale === 'zh_CN') {
       return zhCN;
     }

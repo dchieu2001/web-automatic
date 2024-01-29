@@ -49,17 +49,17 @@ const BusinessWithAsidePage: FC = () => {
       },
     },
     {
-      title: 'Mã sinh viên',
+      title: 'Student code',
       dataIndex: 'student_code',
       key: 'student_code',
     },
     {
-      title: 'Tên sinh viên',
+      title: 'Full Name',
       dataIndex: 'full_name',
       key: 'full_name',
     },
     {
-      title: 'Hoạt động',
+      title: 'Action',
       key: 'action',
       render: (_, record) => (
         <Space size="middle">
@@ -81,17 +81,17 @@ const BusinessWithAsidePage: FC = () => {
       },
     },
     {
-      title: 'Mã sinh viên',
+      title: 'Student code',
       dataIndex: 'student_code',
       key: 'student_code',
     },
     {
-      title: 'Tên sinh viên',
+      title: 'Full Name',
       dataIndex: 'full_name',
       key: 'full_name',
     },
     {
-      title: 'Hoạt động',
+      title: 'Action',
       key: 'action',
       render: (_, record) => (
         <Space size="middle">
@@ -235,14 +235,14 @@ const BusinessWithAsidePage: FC = () => {
     form.resetFields();
     if (classID) setIsModalOpenAddStudent(true);
     else {
-      toast.error('Vui lòng chọn lớp để thêm học sinh!', {
+      toast.error('please choose a class for add student!', {
         duration: 5000,
       });
     }
   };
   const handleOkForAddStudent = async e => {
     if (liststudent.filter(c => c.student_code === e.student_code).length > 0) {
-      toast.error('Mã sinh viên đẫ tồn tại!', {
+      toast.error('student code is exits!', {
         duration: 5000,
       });
 
@@ -257,7 +257,7 @@ const BusinessWithAsidePage: FC = () => {
       const { error } = await supabase.from('students').insert(e);
 
       refreshData();
-      toast.success('Thêm sinh viên thành công.', {
+      toast.success('Add student success.', {
         duration: 5000,
       });
     } catch (error) {
@@ -380,7 +380,7 @@ const BusinessWithAsidePage: FC = () => {
           );
           setHidentProgress(false);
           if (dataInsert.length === 0) {
-            toast.error('Mã sinh viên đẫ tồn tại!', {
+            toast.error('student code is exits!', {
               duration: 5000,
             });
           } else {
@@ -437,7 +437,7 @@ const BusinessWithAsidePage: FC = () => {
     setliststudentIsDelete(listStudentIsDelete);
     setSearch('');
   }else{
-    toast.error('Vui lòng chọn một lớp học!', {
+    toast.error('please choose a class!', {
       duration: 5000,
     });
   }
@@ -447,7 +447,7 @@ const BusinessWithAsidePage: FC = () => {
       <div className="tabs-main">
         <div className="aside-main">
           <Space style={{  padding: '20px' }}>
-            <label style={{ paddingRight: '10px',fontWeight: 'bold',paddingTop:'5px'}}>Vui lòng chọn một lớp học</label>
+            <label style={{ paddingRight: '10px',fontWeight: 'bold',paddingTop:'5px'}}>Please choose a class</label>
             <Dropdown overlay={menuSchoolYear()} className="dropdown-scroll">
               <Button>
                 <Space>
@@ -501,10 +501,10 @@ const BusinessWithAsidePage: FC = () => {
             <div style={{ paddingLeft: '10px', justifyContent: 'center' }}>
               <Button onClick={showModal}>
                 <PlusCircleFilled style={{ color: '#1E90FF' }} />
-                Thêm sinh viên
+                Add Student
               </Button>
             </div>
-            <Modal title="Thêm sinh viên" open={isModalOpenAddStudent} onOk={form.submit} onCancel={handleCancel}>
+            <Modal title="Add Student" open={isModalOpenAddStudent} onOk={form.submit} onCancel={handleCancel}>
               <Form
                 form={form}
                 onFinish={handleOkForAddStudent}
@@ -521,15 +521,15 @@ const BusinessWithAsidePage: FC = () => {
                 <span>
                   <Form.Item
                     name="student_code"
-                    label="Mã sinh viên"
+                    label="Student Code"
                     rules={[
                       {
-                        message: 'Mã sinh viên không hợp lệ',
+                        message: 'Student code is invalid',
                         pattern: new RegExp('^([{20\\21\\22\\23\\24\\25\\26\\27\\28}][0-9]{9,10})$'),
                       },
                       {
                         required: true,
-                        message: "Mã sinh viên không được để trống",
+                        message: "Student code can't be empty",
                       },
                     ]}
                   >
@@ -537,7 +537,7 @@ const BusinessWithAsidePage: FC = () => {
                   </Form.Item>
                   <Form.Item
                     name="full_name"
-                    label="Tên sinh viên"
+                    label="Full Name"
                     rules={[
                       {
                         message: 'Student name is invalide. Ex: Abc Xyz',
@@ -560,11 +560,11 @@ const BusinessWithAsidePage: FC = () => {
               <Form form={form} onFinish={handleOkEditForStudent}>
                 <Form.Item
                   name="student_code"
-                  label="Mã sinh viên"
+                  label="Student Code"
                   rules={[
                     {
                       required: true,
-                      message: 'Nhập mã sinh viên',
+                      message: 'Input student code',
                     },
                   ]}
                 >
@@ -572,11 +572,11 @@ const BusinessWithAsidePage: FC = () => {
                 </Form.Item>
                 <Form.Item
                   name="full_name"
-                  label="Tên sinh viên"
+                  label="Full Name"
                   rules={[
                     {
                       required: true,
-                      message: 'Nhập tên sinh viên',
+                      message: 'Input student name',
                     },
                   ]}
                 >
@@ -585,7 +585,7 @@ const BusinessWithAsidePage: FC = () => {
               </Form>
             </Modal>
             <Modal
-              title="Xóa lớp"
+              title="Delete Class"
               open={isModalOpenDeleteStudent}
               onOk={form.submit}
               onCancel={handleCancel}
@@ -598,7 +598,7 @@ const BusinessWithAsidePage: FC = () => {
               }}
             >
               <Form form={form} onFinish={handleOkDeleteStudent}>
-                <h4>Bạn có chắc muốn xóa lớp ?</h4>
+                <h4>Are you sure delete class ?</h4>
               </Form>
             </Modal>
             <Modal
@@ -632,7 +632,7 @@ const BusinessWithAsidePage: FC = () => {
             }}
           >
             <div className="table">
-              <h3>Sinh viên hiện tại</h3>
+              <h3>Existing Students</h3>
               <Table
                 // pagination={{ pageSize: 5 }}
                 dataSource={liststudent}
@@ -640,7 +640,7 @@ const BusinessWithAsidePage: FC = () => {
                 bordered
                 // onChange={onC}
                 loading={loading}
-                locale={{ emptyText: 'Vui lòng chọn lớp để hiển thị danh sách sinh viên' }}
+                locale={{ emptyText: 'please choose a class to display students list' }}
                 pagination={{
                   onChange(current, pageSize) {
                     setPage(current);
@@ -655,7 +655,7 @@ const BusinessWithAsidePage: FC = () => {
               />
             </div>
             <div className="table" style={{ marginTop: '0', paddingTop: '0' }}>
-              <h3>Sinh viên đã xóa</h3>
+              <h3>Deleted Students</h3>
               <Table
                 pagination={{
                   onChange(current, pageSize) {

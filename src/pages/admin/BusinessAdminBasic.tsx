@@ -168,7 +168,7 @@ const BusinessAdminBasicPage: FC = () => {
           {/* <div style={{ display: 'flex', padding: '20px' }}> */}
           <Space style={{ padding: '20px' }}>
             <label style={{ paddingRight: '10px', fontWeight: 'bold', paddingTop: '5px' }}>
-              Vui lòng chọn lớp và kỳ thi
+              Please choose a class and exam
             </label>
             <Dropdown overlay={menuClassCode()} className="dropdown-scroll">
               <Button>

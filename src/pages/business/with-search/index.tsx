@@ -84,45 +84,45 @@ const BusinessWithSearchPage: FC = () => {
       },
     },
     {
-      title: 'Mã lớp',
+      title: 'Class code',
       dataIndex: 'class_code',
       key: 'class_code',
     },
     {
-      title: 'Tên lớp',
+      title: 'Name',
       dataIndex: 'name',
       key: 'name',
     },
 
     {
-      title: 'Năm học',
+      title: 'School Year',
       dataIndex: 'school_year',
       key: 'school_year',
     },
     {
-      title: 'Học kỳ',
+      title: 'Semester',
       dataIndex: 'semester',
       key: 'semester',
     },
     {
-      title: 'Mô tả',
+      title: 'Description',
       dataIndex: 'description',
       key: 'description',
     },
     {
-      title: 'Ngày tạo',
+      title: 'Create at',
       dataIndex: 'created_at',
       key: 'created_at',
       render: (date: string) => (date ? getFullDate(date) : ''),
     },
     {
-      title: 'Ngày cập nhật',
+      title: 'Update at',
       dataIndex: 'update_at',
       key: 'update_at',
       render: (date: string) => (date ? getFullDate(date) : ''),
     },
     {
-      title: 'Hoạt động',
+      title: 'Action',
       key: 'action',
       render: (_, record) => (
         <Space size="middle">
@@ -143,33 +143,33 @@ const BusinessWithSearchPage: FC = () => {
       },
     },
     {
-      title: 'Mã lớp',
+      title: 'Class code',
       dataIndex: 'class_code',
       key: 'class_code',
     },
     {
-      title: 'Tên lớp',
+      title: 'Name',
       dataIndex: 'name',
       key: 'name',
     },
 
     {
-      title: 'Năm học',
+      title: 'School Year',
       dataIndex: 'school_year',
       key: 'school_year',
     },
     {
-      title: 'Học kỳ',
+      title: 'Semester',
       dataIndex: 'semester',
       key: 'semester',
     },
     {
-      title: 'Mô tả',
+      title: 'Description',
       dataIndex: 'description',
       key: 'description',
     },
     {
-      title: 'Hoạt động',
+      title: 'Action',
       key: 'action',
       render: (_, record) => (
         <Space size="middle">
@@ -243,7 +243,7 @@ const BusinessWithSearchPage: FC = () => {
       const { error } = await supabase.from('classes').insert(e);
 
       refreshData();
-      toast.success('Thêm lớp thành công', {
+      toast.success('Add class success.', {
         duration: 5000,
       });
     } catch (error) {
@@ -305,11 +305,11 @@ const BusinessWithSearchPage: FC = () => {
 
       if (error) throw error;
       refreshData();
-      toast.success('Xóa lớp thành công.', {
+      toast.success('Delete class success.', {
         duration: 5000,
       });
     } catch (err) {
-      toast.error('Lỗi!', {
+      toast.error('somthing went wrong!', {
         duration: 5000,
       });
     }
@@ -398,29 +398,29 @@ const BusinessWithSearchPage: FC = () => {
               onChange={e => {
                 setSearch(e);
               }}
-            ><Input.Search size="medium" placeholder="Tìm lớp theo tên..." enterButton /></AutoComplete>
+            ><Input.Search size="medium" placeholder="find Class by name..." enterButton /></AutoComplete>
             <div style={{ paddingLeft: '10px', justifyContent: 'center' }}>
               <Button onClick={showModal}>
                 <PlusCircleFilled style={{ color: '#1E90FF' }} />
-                Thêm lớp
+                Add Class
               </Button>
               {/* <Button>Import file</Button> */}
             </div>
-            <Modal title="Thêm lớp" open={isModalOpenAddClass} onOk={form.submit} onCancel={handleCancel}>
+            <Modal title="Add Class" open={isModalOpenAddClass} onOk={form.submit} onCancel={handleCancel}>
               <Form form={form} onFinish={handleOkForAddClass}>
                 <Form.Item
                   name="class_code"
-                  label="Mã lớp"
+                  label="Class code"
                   rules={[
                     {
-                      message: 'Mã lớp sai định dạng. Ex: Abc-123, 234_Xyz',
+                      message: 'Class code is wrong format. Ex: Abc-123, 234_Xyz',
                       pattern: new RegExp(
                         '^[A-Za-z 0-9-|_|(|)]{5,25}$',
                       ),
                     },
                     {
                       required: true,
-                      message: "Mã lớp không được để trống !",
+                      message: "Class code can't be empty !",
                     },
                   ]}
                 >
@@ -428,17 +428,17 @@ const BusinessWithSearchPage: FC = () => {
                 </Form.Item>
                 <Form.Item
                   name="name"
-                  label="Tên lớp"
+                  label="Class name"
                   rules={[
                     {
-                      message: 'Tên lớp không hợp lệ. Ex: Abc Xyz',
+                      message: 'Class name is invalid. Ex: Abc Xyz',
                       pattern: new RegExp(
                         '^[a-z A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ0-9#]{2,40}$',
                       ),
                     },
                     {
                       required: true,
-                      message: "Tên lớp không được để trống !",
+                      message: "Class name can't be empty !",
                     },
                   ]}
                 >
@@ -446,11 +446,11 @@ const BusinessWithSearchPage: FC = () => {
                 </Form.Item>
                 <Form.Item
                   name="school_year"
-                  label="Năm học"
+                  label="School Year"
                   rules={[
                     {
                       required: true,
-                      message: 'Hãy chọn năm học',
+                      message: 'Please choose school year',
                     },
                   ]}
                 >
@@ -459,12 +459,11 @@ const BusinessWithSearchPage: FC = () => {
                     <Select.Option value="2020-2021">2020-2021</Select.Option>
                     <Select.Option value="2021-2022">2021-2022</Select.Option>
                     <Select.Option value="2022-2023">2022-2023</Select.Option>
-                    <Select.Option value="2023-2024">2023-2024</Select.Option>
                   </Select>
                 </Form.Item>
                 <Form.Item
                   name="semester"
-                  label="Học kỳ"
+                  label="semester"
                   rules={[
                     {
                       required: true,
@@ -478,7 +477,7 @@ const BusinessWithSearchPage: FC = () => {
                     <Select.Option value="vacation">vacation</Select.Option>
                   </Select>
                 </Form.Item>
-                <Form.Item name="description" label="Mô tả">
+                <Form.Item name="description" label="Description">
                   <Input type="textarea" />
                 </Form.Item>
               </Form>
@@ -487,11 +486,11 @@ const BusinessWithSearchPage: FC = () => {
               <Form form={form} onFinish={handleOkEditForClass}>
                 <Form.Item
                   name="class_code"
-                  label="Mã lớp"
+                  label="Class code"
                   rules={[
                     {
                       required: true,
-                      message: 'Input Mã lớp',
+                      message: 'Input class code',
                     },
                   ]}
                 >
@@ -499,7 +498,7 @@ const BusinessWithSearchPage: FC = () => {
                 </Form.Item>
                 <Form.Item
                   name="name"
-                  label="Tên lớp"
+                  label="Class name"
                   rules={[
                     {
                       required: true,
@@ -511,11 +510,11 @@ const BusinessWithSearchPage: FC = () => {
                 </Form.Item>
                 <Form.Item
                   name="school_year"
-                  label="Năm học"
+                  label="School Year"
                   rules={[
                     {
                       required: true,
-                      message: 'Input Năm học',
+                      message: 'Input school year',
                     },
                   ]}
                 >
@@ -528,7 +527,7 @@ const BusinessWithSearchPage: FC = () => {
                 </Form.Item>
                 <Form.Item
                   name="semester"
-                  label="Học kỳ"
+                  label="semester"
                   rules={[
                     {
                       required: true,
@@ -542,13 +541,13 @@ const BusinessWithSearchPage: FC = () => {
                     <Select.Option value="vacation">vacation</Select.Option>
                   </Select>
                 </Form.Item>
-                <Form.Item name="description" label="Mô tả">
+                <Form.Item name="description" label="Description">
                   <Input type="textarea" />
                 </Form.Item>
               </Form>
             </Modal>
             <Modal
-              title="Xóa lớp"
+              title="Delete Class"
               open={isModalOpenDeleteClass}
               onOk={form.submit}
               onCancel={handleCancel}
@@ -561,7 +560,7 @@ const BusinessWithSearchPage: FC = () => {
               }}
             >
               <Form form={form} onFinish={handleOkDeleteClass}>
-                <h4>Bạn có chắc muốn xóa lớp ?</h4>
+                <h4>Are you sure delete class ?</h4>
               </Form>
             </Modal>
             <Modal
@@ -595,7 +594,7 @@ const BusinessWithSearchPage: FC = () => {
             }}
           >
             <div className="table">
-              <h3>Lớp hiện có</h3>
+              <h3>Existing Class</h3>
               <Table
                 pagination={{
                   onChange(current, pageSize) {
@@ -614,7 +613,7 @@ const BusinessWithSearchPage: FC = () => {
               />
             </div>
             <div className="table" style={{ marginTop: '0', paddingTop: '0' }}>
-              <h3>Lớp đã xóa</h3>
+              <h3>Deleted Class</h3>
               <Table
                 pagination={{
                   onChange(current, pageSize) {

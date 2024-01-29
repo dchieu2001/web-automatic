@@ -92,21 +92,14 @@ const HeaderComponent: FC<HeaderProps> = ({ collapsed, toggle }) => {
 
   return (
     <Header className="layout-page-header bg-2">
-      {device !== 'MOBILE' && (
-        <div className="logo" style={{ width: collapsed ? 80 : 200 }}>
-          <img
-            src={LogoCty}
-            alt=""
-            style={{ marginRight: collapsed ? '2px' : '20px', width: '60px', height: 'auto' }}
-          />
-          {/* <img src={AntdSvg} alt="" /> */}
-        </div>
-      )}
+     
       <div className="layout-page-header-main">
         <div onClick={toggle}>
-          <span id="sidebar-trigger">{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</span>
+        <span id="sidebar-trigger">{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</span>
         </div>
         <div className="actions">
+
+    
           {currentUser ? (
             <Dropdown overlay={menu}>
               <span className="user-action">

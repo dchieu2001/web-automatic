@@ -36,14 +36,14 @@ const mockMenuList: MenuList = [
         },
         path: '/business/with-aside',
       },
-      // {
-      //   code: 'basic',
-      //   label: {
-      //     zh_CN: 'Kết quả',
-      //     en_US: 'Result',
-      //   },
-      //   path: '/business/basic',
-      // },
+      {
+        code: 'basic',
+        label: {
+          zh_CN: 'Kết quả',
+          en_US: 'Result',
+        },
+        path: '/business/basic',
+      },
     ],
   },
   {

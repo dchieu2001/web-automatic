@@ -124,7 +124,7 @@ const Account_manager_page = () => {
     //   const { error } = await supabase.from('classes').insert(e);
 
     //   refreshData();
-    //   toast.success('Thêm lớp thành công', {
+    //   toast.success('Add class success.', {
     //     duration: 5000,
     //   });
     // } catch (error) {

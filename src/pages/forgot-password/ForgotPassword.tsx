@@ -45,7 +45,7 @@ const ForgotPassword: FC = () => {
         <div className="login-page">
           <div className="form-wrapper">
             <span className="logo"></span>
-            <span className="title" style={{ fontSize: '25px', fontWeight: 'bold', paddingBottom: '20px',color:'white' }}>
+            <span className="title" style={{ fontSize: '25px', fontWeight: 'bold', paddingBottom: '20px',color:'black' }}>
             Enter your registered email to reset your password
             </span>
             <Form
@@ -66,9 +66,9 @@ const ForgotPassword: FC = () => {
                 rules={[
                   {
                     type: 'email',
-                    message: 'Định dạng email không chính xác',
+                    message: 'Email format is incorrect',
                   },
-                  { required: true, message: "Email không được để trống" },
+                  { required: true, message: "Email can't be empty!" },
                 ]}
                 wrapperCol={{
                   span: 22,

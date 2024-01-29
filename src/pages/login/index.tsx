@@ -51,7 +51,7 @@ const LoginForm: FC = () => {
           <div className="form-wrapper">
             <span className="logo">INSTAGRADE 5</span>
             <span className="title" style={{ fontSize: '25px', fontWeight: 'bold', paddingBottom: '20px' }}>
-              Đăng nhập
+              Login
             </span>
             <Form
               name="basic"
@@ -71,9 +71,9 @@ const LoginForm: FC = () => {
                 rules={[
                   {
                     type: 'email',
-                    message: 'Định dạng email không chính xác',
+                    message: 'Email format is incorrect',
                   },
-                  { required: true, message: "Email không được để trống" },
+                  { required: true, message: "Email can't be empty!" },
                 ]}
                 wrapperCol={{
                   // offset: 1,
@@ -99,7 +99,7 @@ const LoginForm: FC = () => {
                 rules={[
                   {
                     required: true,
-                    message: "Mật khẩu không được để trống!",
+                    message: "Password can't be empty!",
                   },
                   // {
                   //   message: `Password invalid. \n Ex: Abcd@123!`,
@@ -140,20 +140,20 @@ const LoginForm: FC = () => {
               >
                 <div>
                   {/* type="primary" htmlType="submit" style={{alignItems:'center',textAlign:'center',justifyContent:'center'}} */}
-                  <button style={{ justifyContent: 'center', width: '250px' }}>Đăng nhập</button>
+                  <button style={{ justifyContent: 'center', width: '250px' }}>Sign in</button>
                 </div>
               </Form.Item>
             </Form>
-            <p style={{ fontSize: '15px' }}> 
-                Bạn chưa có tài khoản?{' '}
+            <p style={{ fontSize: '15px' }}>
+              You don't have an account?{' '}
               <Link to="/register">
-                <u style={{ fontWeight: 'bold' }}>Đăng ký</u>
+                <u style={{ fontWeight: 'bold' }}>Register</u>
               </Link>
             </p>
             <p style={{ fontSize: '15px' }}>
-                Quên mật khẩu Bấm vào đây{' '}
+              forgot password Click here{' '}
               <Link to="/forgot-password">
-                <u style={{ fontWeight: 'bold' }}>Quên mật khâu</u>
+                <u style={{ fontWeight: 'bold' }}>Forgot password</u>
               </Link>
             </p>
           </div>

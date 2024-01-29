@@ -85,28 +85,28 @@ const Admin_page: FC = () => {
       },
     },
     {
-      title: 'Mã lớp',
+      title: 'Class code',
       dataIndex: 'class_code',
       key: 'class_code',
     },
     {
-      title: 'Tên lớp',
+      title: 'Name',
       dataIndex: 'name',
       key: 'name',
     },
 
     {
-      title: 'Năm học',
+      title: 'School Year',
       dataIndex: 'school_year',
       key: 'school_year',
     },
     {
-      title: 'Học kỳ',
+      title: 'Semester',
       dataIndex: 'semester',
       key: 'semester',
     },
     {
-      title: 'Mô tả',
+      title: 'Description',
       dataIndex: 'description',
       key: 'description',
     },
@@ -155,17 +155,17 @@ const Admin_page: FC = () => {
     },
 
     {
-      title: 'Năm học',
+      title: 'School Year',
       dataIndex: 'school_year',
       key: 'school_year',
     },
     {
-      title: 'Học kỳ',
+      title: 'Semester',
       dataIndex: 'semester',
       key: 'semester',
     },
     {
-      title: 'Mô tả',
+      title: 'Description',
       dataIndex: 'description',
       key: 'description',
     },
@@ -234,7 +234,7 @@ const Admin_page: FC = () => {
       const { error } = await supabase.from('classes').insert(e);
 
       refreshData();
-      toast.success('Thêm lớp thành công', {
+      toast.success('Add class success.', {
         duration: 5000,
       });
     } catch (error) {
@@ -296,11 +296,11 @@ const Admin_page: FC = () => {
 
       if (error) throw error;
       refreshData();
-      toast.success('Xóa lớp thành công.', {
+      toast.success('Delete class success.', {
         duration: 5000,
       });
     } catch (err) {
-      toast.error('Lỗi!', {
+      toast.error('somthing went wrong!', {
         duration: 5000,
       });
     }
@@ -429,11 +429,11 @@ const Admin_page: FC = () => {
                 </Form.Item>
                 <Form.Item
                   name="school_year"
-                  label="Năm học"
+                  label="School Year"
                   rules={[
                     {
                       required: true,
-                      message: 'Input Năm học',
+                      message: 'Input school year',
                     },
                   ]}
                 >
@@ -493,11 +493,11 @@ const Admin_page: FC = () => {
                 </Form.Item>
                 <Form.Item
                   name="school_year"
-                  label="Năm học"
+                  label="School Year"
                   rules={[
                     {
                       required: true,
-                      message: 'Input Năm học',
+                      message: 'Input school year',
                     },
                   ]}
                 >
@@ -530,7 +530,7 @@ const Admin_page: FC = () => {
               </Form>
             </Modal>
             <Modal
-              title="Xóa lớp"
+              title="Delete Class"
               open={isModalOpenDeleteClass}
               onOk={form.submit}
               onCancel={handleCancel}
@@ -543,7 +543,7 @@ const Admin_page: FC = () => {
               }}
             >
               <Form form={form} onFinish={handleOkDeleteClass}>
-                <h4>Bạn có chắc muốn xóa lớp ?</h4>
+                <h4>Are you sure delete class ?</h4>
               </Form>
             </Modal>
             <Modal
@@ -577,7 +577,7 @@ const Admin_page: FC = () => {
             }}
           >
             <div className="table">
-              <h3>Lớp hiện có</h3>
+              <h3>Existing Class</h3>
               <Table
                 pagination={{
                   onChange(current, pageSize) {
@@ -596,7 +596,7 @@ const Admin_page: FC = () => {
               />
             </div>
             <div className="table" style={{ marginTop: '0', paddingTop: '0' }}>
-              <h3>Lớp đã xóa</h3>
+              <h3>Deleted Class</h3>
               <Table
                 pagination={{
                   onChange(current, pageSize) {
